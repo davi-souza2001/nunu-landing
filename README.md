@@ -1,36 +1,72 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Nunu — landing
 
-## Getting Started
+Landing de divulgação da Nunu, a assistente de nutrição no WhatsApp.
+Página única, estática, **sem cadastro** e sem backend.
 
-First, run the development server:
+## Rodar
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+> O projeto é exportado como site estático (`output: 'export'`). O `npm run dev`
+> funciona normalmente; o que muda é que `npm run start` não existe na prática —
+> veja a seção de publicação.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Checkout
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Os botões de assinatura são **apenas visuais** por enquanto — não apontam para
+lugar nenhum. Quando o Payment Link do Stripe existir, é envolver o conteúdo de
+`components/ui/CheckoutButton.tsx` num `<a href={...}>`.
 
-## Learn More
+## Publicar no GitHub Pages
 
-To learn more about Next.js, take a look at the following resources:
+Já está configurado. `.github/workflows/deploy.yml` builda e publica a cada
+push na `main`.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+gh repo create nunu-landing --public --source=. --remote=origin --push
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Depois, uma vez só: **Settings → Pages → Source: GitHub Actions**.
 
-## Deploy on Vercel
+O `basePath` é resolvido pelo próprio workflow (`actions/configure-pages`), então
+funciona tanto em `usuario.github.io/nunu-landing` quanto em domínio próprio,
+sem editar nada.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Rodar o build estático localmente
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+npm run build && npx serve out
+```
+
+`npm run start` não funciona com `output: 'export'` — não existe servidor Next
+para iniciar.
+
+## Onde mexer
+
+| O quê | Onde |
+|---|---|
+| Preço, limite grátis, uso justo, FAQ, recursos | `lib/site.ts` |
+| Paleta, fontes, easing | `app/globals.css` (`@theme`) |
+| Conversa da demo | `components/ChatDemo.tsx` |
+| Ordem das seções | `app/page.tsx` |
+
+`lib/site.ts` é fonte única: o card de preço e o FAQ leem os mesmos valores, então
+eles não podem divergir.
+
+## Números da página
+
+R$ 49,90/mês, 30 mensagens grátis e uso justo de 300 respostas/mês saíram do
+cálculo de custo por turno (Gemini 3.8 Flash + tarifa de serviço da Meta no
+Brasil, vigente desde 1º/10/2026). Mudar o preço aqui não muda o produto —
+o limite grátis ainda precisa ser aplicado no backend do agente.
+
+## Stack
+
+Next.js 16 (App Router) · React 19 · TypeScript · Tailwind v4 (CSS-first, sem
+`tailwind.config.js`) · deploy estático.
+
+Animações de entrada são `IntersectionObserver` + transição CSS, todas atrás de
+`prefers-reduced-motion`.
