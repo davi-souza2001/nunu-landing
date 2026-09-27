@@ -70,3 +70,5 @@ Next.js 16 (App Router) · React 19 · TypeScript · Tailwind v4 (CSS-first, sem
 
 Animações de entrada são `IntersectionObserver` + transição CSS, todas atrás de
 `prefers-reduced-motion`.
+
+<!-- dv -->
