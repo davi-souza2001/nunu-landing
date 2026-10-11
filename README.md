@@ -16,9 +16,17 @@ npm run dev
 
 ## Checkout
 
-Os botões de assinatura são **apenas visuais** por enquanto — não apontam para
-lugar nenhum. Quando o Payment Link do Stripe existir, é envolver o conteúdo de
-`components/ui/CheckoutButton.tsx` num `<a href={...}>`.
+Os botões de assinatura (`components/ui/CheckoutButton.tsx`) levam ao Payment
+Link do Stripe definido em `NEXT_PUBLIC_CHECKOUT_URL`. Sem ele, ficam só visuais.
+
+- **Local:** crie `.env.local` com
+  `NEXT_PUBLIC_CHECKOUT_URL=https://buy.stripe.com/test_...` (link de teste).
+- **GitHub Pages:** crie a variável `CHECKOUT_URL` em *Settings → Secrets and
+  variables → Actions → Variables*. Comece com o link de teste e troque pelo de
+  produção quando o fluxo estiver validado — sem mudar código.
+
+O Payment Link precisa ter **"Coletar número de telefone"** ligado: é por esse
+número que o agente (nutri-agent) libera o WhatsApp de quem assina pela landing.
 
 ## Publicar no GitHub Pages
 
@@ -58,10 +66,11 @@ eles não podem divergir.
 
 ## Números da página
 
-R$ 49,90/mês, 30 mensagens grátis e uso justo de 300 respostas/mês saíram do
+R$ 19,99/mês, 30 mensagens grátis e uso justo de 300 respostas/mês saíram do
 cálculo de custo por turno (Gemini 3.8 Flash + tarifa de serviço da Meta no
-Brasil, vigente desde 1º/10/2026). Mudar o preço aqui não muda o produto —
-o limite grátis ainda precisa ser aplicado no backend do agente.
+Brasil, vigente desde 1º/10/2026). Mudar o preço aqui não muda o produto: o
+preço cobrado é o do Stripe, e o limite grátis é o `FREE_TRIAL_MESSAGES` do
+agente — mantenha os três iguais.
 
 ## Stack
 

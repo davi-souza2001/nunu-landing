@@ -16,6 +16,16 @@ export const site = {
   url: 'https://nunu.app.br',
 } as const;
 
+/**
+ * Payment Link do Stripe. Vem do build (`NEXT_PUBLIC_CHECKOUT_URL`, variável do
+ * repositório no GitHub) para trocar o link de teste pelo de produção sem
+ * mexer no código. Vazio = botões voltam a ser só visuais.
+ *
+ * O link precisa ter "Coletar número de telefone" ligado no Stripe: é por esse
+ * número que o agente libera o WhatsApp de quem assinou pela landing.
+ */
+export const checkoutUrl = process.env.NEXT_PUBLIC_CHECKOUT_URL ?? '';
+
 export const pricing = {
   amount: 19.99,
   currency: 'BRL',

@@ -37,8 +37,11 @@ jobs:
       - name: Build estático
         # `base_path` vem do passo acima: vazio em domínio próprio,
         # `/nome-do-repo` quando o site mora num subcaminho.
+        # `CHECKOUT_URL` é uma variável do repositório (Settings → Secrets and
+        # variables → Actions → Variables) com o Payment Link do Stripe.
         env:
           PAGES_BASE_PATH: ${{ steps.pages.outputs.base_path }}
+          NEXT_PUBLIC_CHECKOUT_URL: ${{ vars.CHECKOUT_URL }}
         run: npm run build
 
       - uses: actions/upload-pages-artifact@v3
