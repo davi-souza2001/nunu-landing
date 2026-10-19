@@ -25,6 +25,11 @@ Link do Stripe definido em `NEXT_PUBLIC_CHECKOUT_URL`. Sem ele, ficam só visuai
   variables → Actions → Variables*. Comece com o link de teste e troque pelo de
   produção quando o fluxo estiver validado — sem mudar código.
 
+Os botões de **teste grátis** ("Começar grátis" e "Começar agora") abrem o
+WhatsApp da Nunu com a primeira mensagem já digitada. O número vem de
+`NEXT_PUBLIC_WHATSAPP_NUMBER` (local) / variável `WHATSAPP_NUMBER` (GitHub),
+só dígitos com DDI, ex. `5581999999999`. Sem ele, os botões levam ao card de preço.
+
 O Payment Link precisa ter **"Coletar número de telefone"** ligado: é por esse
 número que o agente (nutri-agent) libera o WhatsApp de quem assina pela landing.
 
@@ -56,7 +61,7 @@ para iniciar.
 
 | O quê | Onde |
 |---|---|
-| Preço, limite grátis, uso justo, FAQ, recursos | `lib/site.ts` |
+| Preço, limite grátis, limite mensal, FAQ, recursos | `lib/site.ts` |
 | Paleta, fontes, easing | `app/globals.css` (`@theme`) |
 | Conversa da demo | `components/ChatDemo.tsx` |
 | Ordem das seções | `app/page.tsx` |
@@ -66,7 +71,7 @@ eles não podem divergir.
 
 ## Números da página
 
-R$ 19,99/mês, 30 mensagens grátis e uso justo de 300 respostas/mês saíram do
+R$ 19,99/mês, 30 mensagens grátis e o limite de 300 respostas/mês saíram do
 cálculo de custo por turno (Gemini 3.8 Flash + tarifa de serviço da Meta no
 Brasil, vigente desde 1º/10/2026). Mudar o preço aqui não muda o produto: o
 preço cobrado é o do Stripe, e o limite grátis é o `FREE_TRIAL_MESSAGES` do

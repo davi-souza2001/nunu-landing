@@ -5,7 +5,8 @@ interface CheckoutButtonProps {
   className?: string;
 }
 
-const baseClass =
+/** Estilo do CTA principal — compartilhado com o botão do WhatsApp. */
+export const ctaBaseClass =
   'inline-flex items-center justify-center gap-2 rounded-full bg-leaf-600 px-7 py-3.5 text-base font-semibold text-white shadow-lg shadow-leaf-600/20';
 
 /**
@@ -20,14 +21,14 @@ export function CheckoutButton({
   className = '',
 }: CheckoutButtonProps) {
   if (!checkoutUrl) {
-    return <span className={`${baseClass} ${className}`}>{children}</span>;
+    return <span className={`${ctaBaseClass} ${className}`}>{children}</span>;
   }
   return (
     <a
       href={checkoutUrl}
       target="_blank"
       rel="noopener noreferrer"
-      className={`${baseClass} transition-colors duration-150 hover:bg-leaf-700 ${className}`}
+      className={`${ctaBaseClass} transition-colors duration-150 hover:bg-leaf-700 ${className}`}
     >
       {children}
     </a>

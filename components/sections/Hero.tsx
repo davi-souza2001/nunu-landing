@@ -1,6 +1,7 @@
 import { ChatDemo } from '@/components/ChatDemo';
 import { Reveal } from '@/components/ui/Reveal';
 import { CheckoutButton } from '@/components/ui/CheckoutButton';
+import { WhatsAppButton } from '@/components/ui/WhatsAppButton';
 import { pricing, site } from '@/lib/site';
 
 export function Hero() {
@@ -40,12 +41,9 @@ export function Hero() {
           <Reveal delay={240}>
             <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
               <CheckoutButton>Assinar por {pricing.display}</CheckoutButton>
-              <a
-                href="#preco"
-                className="inline-flex items-center justify-center rounded-full border border-leaf-200 bg-white px-7 py-3.5 text-base font-semibold text-leaf-700 transition-colors duration-150 hover:border-leaf-400 hover:bg-leaf-50"
-              >
+              <WhatsAppButton className="inline-flex items-center justify-center rounded-full border border-leaf-200 bg-white px-7 py-3.5 text-base font-semibold text-leaf-700 transition-colors duration-150 hover:border-leaf-400 hover:bg-leaf-50">
                 Começar grátis
-              </a>
+              </WhatsAppButton>
             </div>
           </Reveal>
 

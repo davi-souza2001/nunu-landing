@@ -1,7 +1,7 @@
 /**
  * Fonte única dos números e textos que aparecem em mais de um lugar.
  *
- * Preço, limite grátis e uso justo saíram do cálculo de custo real por turno
+ * Preço, limite grátis e limite mensal saíram do cálculo de custo real por turno
  * (Gemini 3.8 Flash + tarifa de serviço da Meta no Brasil). Mudar um valor aqui
  * muda a página inteira — inclusive o FAQ, que precisa dizer a mesma coisa que
  * o card de preço.
@@ -26,6 +26,23 @@ export const site = {
  */
 export const checkoutUrl = process.env.NEXT_PUBLIC_CHECKOUT_URL ?? '';
 
+/** Primeira mensagem já digitada no chat — a pessoa só precisa enviar. */
+const whatsappGreeting = 'Oi, Nunu! Quero começar meu teste grátis 🌿';
+
+/**
+ * Conversa com a Nunu no WhatsApp, para o teste grátis. O número (só dígitos,
+ * com DDI: 5581...) vem do build (`NEXT_PUBLIC_WHATSAPP_NUMBER`, variável
+ * `WHATSAPP_NUMBER` do repositório). Vazio = os botões de teste grátis caem
+ * no card de preço.
+ */
+const whatsappNumber = (process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? '').replace(
+  /\D/g,
+  '',
+);
+export const whatsappUrl = whatsappNumber
+  ? `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappGreeting)}`
+  : '';
+
 export const pricing = {
   amount: 19.99,
   currency: 'BRL',
@@ -34,8 +51,8 @@ export const pricing = {
   period: '/mês',
   /** Mensagens grátis antes de precisar assinar. Sem prazo de validade. */
   freeMessages: 30,
-  /** Uso justo mensal. ~10 trocas por dia — acima do uso real de quase todos. */
-  fairUse: 300,
+  /** Respostas por mês no plano pago. ~10 por dia — acima do uso real de quase todos. */
+  monthlyReplies: 300,
 } as const;
 
 export const features = [
@@ -100,7 +117,7 @@ export const faq = [
   },
   {
     q: 'Existe limite no plano pago?',
-    a: `Há um uso justo de ${pricing.fairUse} respostas por mês, cerca de dez por dia. É bem acima do que quase todo mundo usa, mas preferimos declarar do que esconder numa letra miúda.`,
+    a: `O plano inclui até ${pricing.monthlyReplies} respostas por mês, cerca de dez por dia. É bem acima do que quase todo mundo usa, mas preferimos declarar do que esconder numa letra miúda.`,
   },
   {
     q: 'A Nunu substitui nutricionista ou médico?',

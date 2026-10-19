@@ -1,6 +1,7 @@
 import { Reveal } from '@/components/ui/Reveal';
 import { Section } from '@/components/ui/Section';
-import { CheckoutButton } from '@/components/ui/CheckoutButton';
+import { ctaBaseClass } from '@/components/ui/CheckoutButton';
+import { WhatsAppButton } from '@/components/ui/WhatsAppButton';
 import { pricing } from '@/lib/site';
 
 export function Cta() {
@@ -21,9 +22,11 @@ export function Cta() {
               parar de responder.
             </p>
             <div className="mt-9 flex justify-center">
-              <CheckoutButton className="!bg-white !text-leaf-700 hover:!bg-leaf-50">
+              <WhatsAppButton
+                className={`${ctaBaseClass} !bg-white !text-leaf-700 transition-colors duration-150 hover:!bg-leaf-50`}
+              >
                 Começar agora
-              </CheckoutButton>
+              </WhatsAppButton>
             </div>
           </div>
         </div>

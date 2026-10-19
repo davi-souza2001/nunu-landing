@@ -4,7 +4,7 @@ import { CheckoutButton } from '@/components/ui/CheckoutButton';
 import { pricing } from '@/lib/site';
 
 const included = [
-  'Conversas ilimitadas dentro do uso justo',
+  `Até ${pricing.monthlyReplies} respostas por mês`,
   'Áudio e foto do prato',
   'Foco do dia personalizado pelo seu objetivo',
   'Anamnese completa e memória do seu histórico',
@@ -67,7 +67,7 @@ export function Pricing() {
 
               {/* Declarado, não escondido: o teto existe e a pessoa merece saber. */}
               <p className="mt-5 text-center text-sm leading-relaxed text-ink-500">
-                Uso justo de {pricing.fairUse} respostas por mês — cerca de dez
+                Até {pricing.monthlyReplies} respostas por mês — cerca de dez
                 por dia. Ao chegar perto, a Nunu te avisa.
               </p>
             </div>
