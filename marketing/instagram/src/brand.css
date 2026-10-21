@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=block');
+
+/* Paleta tirada da logo: verde-sálvia do balão, caramelo da folha e o marrom do "nunu". */
+:root {
+  --sand: #f5f1ea;
+  --sand-deep: #ece5d8;
+  --sage: #9ab291;
+  --sage-dark: #6e8a65;
+  --sage-light: #dde5d3;
+  --tan: #b9946a;
+  --tan-light: #e6d3bd;
+  --terracotta: #c99a78;
+  --brown: #4e453c;
+  --ink: #3a342d;
+  --muted: #6f665c;
+  --white: #fffdf9;
+  --serif: 'Fraunces', Georgia, serif;
+  --sans: 'Plus Jakarta Sans', system-ui, sans-serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { background: #d8d2c6; }
+body { font-family: var(--sans); color: var(--ink); -webkit-font-smoothing: antialiased; }
+
+/* ---------- Conversa estilo WhatsApp (post 2 e Reel) ---------- */
+.phone {
+  position: relative;
+  width: 600px;
+  height: 1180px;
+  border-radius: 84px;
+  background: #1f1d1a;
+  padding: 18px;
+  box-shadow: 0 50px 90px -30px rgba(58, 52, 45, 0.45), 0 0 0 2px #3b3732 inset;
+  text-align: left;
+}
+.phone::before { /* ilha da câmera */
+  content: '';
+  position: absolute;
+  top: 34px; left: 50%;
+  width: 150px; height: 40px;
+  transform: translateX(-50%);
+  border-radius: 22px;
+  background: #0d0c0b;
+  z-index: 3;
+}
+.screen {
+  position: relative;
+  width: 100%; height: 100%;
+  border-radius: 68px;
+  overflow: hidden;
+  background: #efe8dc;
+  display: flex;
+  flex-direction: column;
+}
+.chat-head {
+  display: flex; align-items: center; gap: 18px;
+  padding: 92px 30px 22px;
+  background: var(--sage-dark);
+  color: var(--white);
+}
+.chat-head .avatar {
+  width: 64px; height: 64px; border-radius: 50%;
+  background: var(--white);
+  display: grid; place-items: center;
+}
+.chat-head .avatar img { width: 42px; }
+.chat-head .name { font-weight: 700; font-size: 28px; }
+.chat-head .status { font-size: 20px; opacity: 0.85; margin-top: 2px; }
+.chat-body {
+  flex: 1;
+  display: flex; flex-direction: column; justify-content: flex-end;
+  gap: 18px;
+  padding: 24px 22px 26px;
+  overflow: hidden;
+}
+.chat-input {
+  display: flex; align-items: center; gap: 14px;
+  padding: 16px 22px 34px;
+}
+.chat-input .field {
+  flex: 1; height: 64px; border-radius: 32px;
+  background: var(--white);
+  color: #a59c90; font-size: 22px;
+  display: flex; align-items: center; padding: 0 26px;
+}
+.chat-input .mic {
+  width: 64px; height: 64px; border-radius: 50%;
+  background: var(--sage-dark);
+  display: grid; place-items: center;
+}
+
+.bubble {
+  max-width: 82%;
+  padding: 18px 22px 14px;
+  border-radius: 26px;
+  font-size: 23px;
+  line-height: 1.42;
+  color: var(--ink);
+  box-shadow: 0 2px 2px rgba(58, 52, 45, 0.06);
+  white-space: pre-line;
+  transform-origin: bottom left;
+}
+.bubble.nunu { align-self: flex-start; background: var(--white); border-bottom-left-radius: 8px; }
+.bubble.user {
+  align-self: flex-end;
+  background: #dbe8d0;
+  border-bottom-right-radius: 8px;
+  transform-origin: bottom right;
+}
+.bubble .time { display: block; text-align: right; font-size: 17px; color: #8b8378; margin-top: 4px; }
+
+.audio { display: flex; align-items: center; gap: 16px; width: 360px; }
+.audio .play {
+  width: 0; height: 0;
+  border-left: 22px solid var(--sage-dark);
+  border-top: 14px solid transparent;
+  border-bottom: 14px solid transparent;
+}
+.audio .wave { display: flex; align-items: center; gap: 5px; flex: 1; height: 44px; }
+.audio .wave i { display: block; width: 5px; border-radius: 3px; background: var(--sage-dark); }
+.audio .dur { font-size: 18px; color: #6f7a69; }
+.transcript { font-size: 20px; font-style: italic; color: #5d6b57; margin-top: 10px; }
+
+.photo { width: 380px; height: 260px; border-radius: 18px; overflow: hidden; margin-bottom: 10px; }
+
+.day { align-self: center; background: #e2dacb; color: #6f665c; font-size: 19px; font-weight: 600; padding: 8px 18px; border-radius: 12px; margin-bottom: auto; }
+.typing { align-self: flex-start; background: var(--white); border-radius: 26px; border-bottom-left-radius: 8px; padding: 22px 26px; display: flex; gap: 9px; }
+.typing i { width: 13px; height: 13px; border-radius: 50%; background: var(--sage); display: block; }

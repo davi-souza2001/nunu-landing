@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Nunu — posts do feed</title>
+<link rel="stylesheet" href="brand.css">
+<style>
+  body { display: flex; flex-direction: column; gap: 40px; padding: 40px; align-items: center; }
+  .slide {
+    position: relative;
+    width: 1080px; height: 1350px;
+    background: var(--sand);
+    overflow: hidden;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    text-align: center;
+  }
+  .deco { position: absolute; inset: 0; pointer-events: none; }
+  .content { position: relative; z-index: 2; display: flex; flex-direction: column; align-items: center; padding: 0 110px; }
+
+  .symbol { width: 150px; }
+  .h1 { font-family: var(--serif); font-weight: 500; font-size: 112px; line-height: 1.02; letter-spacing: -0.01em; color: var(--brown); }
+  .h1 .tan { color: var(--tan); }
+  .h1 em { font-style: italic; font-weight: 400; }
+  .h2 { font-family: var(--serif); font-weight: 500; font-size: 78px; line-height: 1.08; letter-spacing: -0.005em; color: var(--brown); }
+  .sub { font-size: 40px; line-height: 1.4; color: var(--ink); font-weight: 400; }
+  .kicker { font-size: 24px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--sage-dark); }
+  .small { font-size: 28px; color: var(--muted); }
+  .handle { position: absolute; bottom: 56px; left: 0; right: 0; text-align: center; font-size: 24px; color: var(--muted); letter-spacing: 0.04em; z-index: 2; }
+  .swipe { position: absolute; bottom: 56px; right: 70px; background: var(--sand); padding: 10px 18px; border-radius: 999px; font-size: 26px; color: var(--sage-dark); font-weight: 600; z-index: 2; display: flex; align-items: center; gap: 12px; }
+  .arrow { width: 170px; }
+  .pills { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+  .pill { padding: 14px 28px; border-radius: 999px; background: var(--white); border: 2px solid var(--sage-light); font-size: 28px; font-weight: 600; color: var(--sage-dark); }
+
+  .steps { display: flex; flex-direction: column; gap: 26px; width: 860px; text-align: left; }
+  .step { display: flex; gap: 32px; align-items: center; background: var(--white); border-radius: 36px; padding: 34px 40px; box-shadow: 0 18px 40px -28px rgba(58,52,45,.35); }
+  .step .n { flex: none; width: 92px; height: 92px; border-radius: 50%; background: var(--sage-light); color: var(--sage-dark); font-family: var(--serif); font-size: 44px; font-weight: 600; display: grid; place-items: center; }
+  .step .t { font-size: 34px; font-weight: 700; color: var(--brown); }
+  .step .b { font-size: 27px; line-height: 1.4; color: var(--muted); margin-top: 6px; }
+
+  .features { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; width: 880px; text-align: left; }
+  .feature { background: var(--white); border-radius: 36px; padding: 36px 34px; box-shadow: 0 18px 40px -28px rgba(58,52,45,.35); }
+  .feature .ic { width: 84px; height: 84px; border-radius: 50%; background: var(--sage-light); display: grid; place-items: center; font-size: 42px; }
+  .feature .t { font-size: 32px; font-weight: 700; color: var(--brown); margin-top: 22px; }
+  .feature .b { font-size: 25px; line-height: 1.42; color: var(--muted); margin-top: 8px; }
+</style>
+</head>
+<body>
+
+<!-- POST 1 · carrossel de apresentação -->
+<section class="slide" id="post1-1">
+  <svg class="deco" viewBox="0 0 1080 1350"></svg>
+  <div class="content">
+    <img class="symbol" src="../assets/simbolo.png" alt="" style="width:190px">
+    <h1 class="h1" style="margin-top:56px">Oi, eu sou<br><span class="tan">a Nunu!</span></h1>
+    <p class="sub" style="margin-top:44px">Sua assistente de nutrição<br>no WhatsApp.</p>
+  </div>
+  <div class="swipe">arrasta pro lado <svg width="46" height="20" viewBox="0 0 46 20"><path d="M2 10h40M33 2l9 8-9 8" stroke="#6e8a65" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+</section>
+
+<section class="slide" id="post1-2">
+  <svg class="deco" viewBox="0 0 1080 1350"></svg>
+  <div class="content">
+    <p class="kicker">Como funciona</p>
+    <h2 class="h2" style="margin-top:24px">Simples como<br>mandar um <em>oi</em>.</h2>
+    <div class="steps" style="margin-top:64px">
+      <div class="step"><div class="n">1</div><div><div class="t">Você chama no WhatsApp</div><div class="b">Sem app para baixar, sem senha para criar.</div></div></div>
+      <div class="step"><div class="n">2</div><div><div class="t">Ela pergunta o essencial</div><div class="b">Seu objetivo, sua rotina, alergias e remédios. Uma vez só.</div></div></div>
+      <div class="step"><div class="n">3</div><div><div class="t">E te acompanha todo dia</div><div class="b">Responde dúvidas, áudios e fotos do prato no seu contexto.</div></div></div>
+    </div>
+  </div>
+  <div class="swipe">arrasta pro lado <svg width="46" height="20" viewBox="0 0 46 20"><path d="M2 10h40M33 2l9 8-9 8" stroke="#6e8a65" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+</section>
+
+<section class="slide" id="post1-3">
+  <svg class="deco" viewBox="0 0 1080 1350"></svg>
+  <div class="content">
+    <h1 class="h1"><span class="tan">Vamos</span><br>começar?</h1>
+    <p class="sub" style="margin-top:44px">As primeiras 30 mensagens<br>são por nossa conta.</p>
+    <div class="pills" style="margin-top:48px"><span class="pill">Sem app</span><span class="pill">Sem cadastro</span><span class="pill">Sem cartão</span></div>
+    <svg class="arrow" style="margin-top:72px" viewBox="0 0 170 40"><path d="M6 22 C 50 14, 110 14, 156 20 M136 6 L158 20 L138 34" stroke="#9ab291" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <p class="small" style="margin-top:28px;font-size:32px;color:var(--ink)">Link na bio.</p>
+  </div>
+</section>
+
+<!-- POST 2 · imagem única (também é a capa do Reel) -->
+<section class="slide" id="post2" style="justify-content:flex-start">
+  <svg class="deco" viewBox="0 0 1080 1350"></svg>
+  <div class="content" style="padding-top:70px">
+    <div style="transform:scale(.78);transform-origin:top center;height:925px" id="post2-phone"></div>
+    <h1 class="h1" style="font-size:104px;margin-top:20px">Sua rotina<br>mais <em>leve</em>.</h1>
+  </div>
+</section>
+
+<!-- POST 3 · carrossel de confiança -->
+<section class="slide" id="post3-1">
+  <svg class="deco" viewBox="0 0 1080 1350"></svg>
+  <div class="content">
+    <img src="../assets/simbolo.png" alt="" style="width:130px">
+    <h1 class="h1" style="margin-top:56px">Feito com<br>carinho<br>e <span class="tan">ciência</span>.</h1>
+    <p class="sub" style="margin-top:48px;font-size:36px">Cada resposta considera seu objetivo,<br>sua rotina e suas restrições de saúde.</p>
+  </div>
+  <div class="swipe">arrasta pro lado <svg width="46" height="20" viewBox="0 0 46 20"><path d="M2 10h40M33 2l9 8-9 8" stroke="#6e8a65" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+</section>
+
+<section class="slide" id="post3-2">
+  <svg class="deco" viewBox="0 0 1080 1350"></svg>
+  <div class="content">
+    <p class="kicker">O que ela faz</p>
+    <h2 class="h2" style="margin-top:24px">Cuidado que cabe<br>no seu dia.</h2>
+    <div class="features" style="margin-top:60px">
+      <div class="feature"><div class="ic"><svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="#6e8a65" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3M9 21h6"/></svg></div><div class="t">Entende áudio</div><div class="b">Mandou correndo entre uma reunião e outra? Ela ouve e responde.</div></div>
+      <div class="feature"><div class="ic"><svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="#6e8a65" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3.5"/></svg></div><div class="t">Lê a foto do prato</div><div class="b">Olha o almoço ou o rótulo e responde no seu contexto.</div></div>
+      <div class="feature"><div class="ic"><svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="#6e8a65" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r="1" fill="#6e8a65"/></svg></div><div class="t">Um foco por dia</div><div class="b">Um pequeno desafio escolhido pelo seu objetivo.</div></div>
+      <div class="feature"><div class="ic"><svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="#6e8a65" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg></div><div class="t">Filtra por segurança</div><div class="b">Alergias, remédios e condições entram em toda sugestão.</div></div>
+    </div>
+  </div>
+  <div class="swipe">arrasta pro lado <svg width="46" height="20" viewBox="0 0 46 20"><path d="M2 10h40M33 2l9 8-9 8" stroke="#6e8a65" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+</section>
+
+<section class="slide" id="post3-3">
+  <svg class="deco" viewBox="0 0 1080 1350"></svg>
+  <div class="content">
+    <p class="kicker">E o que ela não faz</p>
+    <h2 class="h2" style="margin-top:28px">Ela não substitui<br>seu <span style="color:var(--tan)">nutricionista</span>.</h2>
+    <p class="sub" style="margin-top:44px;font-size:36px">A Nunu é o apoio do dia a dia.<br>Quando o assunto é clínico, ela mesma<br>avisa: hora de procurar um profissional.</p>
+    <img src="../assets/logo-completo.png" alt="Nunu — saúde e bem-estar" style="width:220px;margin-top:84px">
+  </div>
+</section>
+
+<script src="brand.js"></script>
+<script>
+  // Decoração de cada slide: ramos em traço + manchas, variando por slide.
+  const S = '#9ab291', T = '#c9a27c';
+  const blob = (d, fill, op = 1) => `<path d="${d}" fill="${fill}" opacity="${op}"/>`;
+  const decos = {
+    'post1-1': blob('M0 0 H430 C380 120 300 170 170 190 C80 205 30 260 0 330 Z', '#dde5d3') +
+      branch({ x: -20, y: 330, rot: -58, scale: 1.05 }) + branch({ x: 1110, y: 300, rot: -150, scale: .9, leaves: 6 }) +
+      branch({ x: 1110, y: 1080, rot: -152, scale: .85, leaves: 6 }) + branch({ x: -30, y: 1330, rot: -40, scale: 1 }),
+    'post1-2': branch({ x: -30, y: 250, rot: -40, scale: .85, leaves: 6 }) + branch({ x: -40, y: 1360, rot: -35, scale: .9, leaves: 6 }),
+    'post1-3': blob('M0 0 H360 C330 150 240 230 120 270 C60 290 20 340 0 400 Z', '#dde5d3') +
+      blob('M1080 1350 H700 C760 1250 850 1190 960 1150 C1030 1125 1060 1080 1080 1020 Z', '#dde5d3') +
+      branch({ x: -10, y: 470, rot: -62, scale: 1.1 }) + branch({ x: 1110, y: 260, rot: -155, scale: .95, leaves: 6 }) +
+      branch({ x: -40, y: 1330, rot: -30, scale: .9, leaves: 6 }) + branch({ x: 1120, y: 1150, rot: -120, scale: .8, leaves: 5 }),
+    'post2': branch({ x: -40, y: 1180, rot: -42, scale: 1.05 }) + branch({ x: 1120, y: 360, rot: -160, scale: 1 }) +
+      branch({ x: 1100, y: 1400, rot: -120, scale: .8, leaves: 5 }),
+    'post3-1': blob('M0 0 H460 C400 160 300 240 170 300 C70 345 20 420 0 520 Z', '#c7d2bb', .8) +
+      blob('M1080 1350 H640 C700 1220 800 1150 930 1110 C1010 1085 1060 1030 1080 960 Z', T, .55) +
+      blob('M1080 0 V430 C1000 390 960 300 960 200 C960 110 1000 40 1080 0 Z', '#ead9c6', .9) +
+      branch({ x: 1060, y: 420, rot: -150, scale: .9, leaves: 6, filled: true, color: '#8ea684' }) +
+      branch({ x: -20, y: 1330, rot: -60, scale: .85, leaves: 6, filled: true, color: '#8ea684' }),
+    'post3-2': blob('M1080 0 V360 C990 330 940 250 950 150 C958 80 1010 30 1080 0 Z', '#dde5d3') +
+      branch({ x: -40, y: 1380, rot: -38, scale: .85, leaves: 6 }),
+    'post3-3': blob('M0 1350 V900 C110 930 190 1010 210 1120 C225 1210 200 1290 160 1350 Z', '#ead9c6', .9) +
+      branch({ x: 1110, y: 320, rot: -150, scale: .95 }) + branch({ x: -20, y: 1300, rot: -48, scale: .8, leaves: 6 }),
+  };
+  for (const [id, svg] of Object.entries(decos)) document.querySelector(`#${id} .deco`).innerHTML = svg;
+
+  document.getElementById('post2-phone').innerHTML = phoneHTML(MSG.audio + MSG.reply1);
+</script>
+</body>
+</html>
