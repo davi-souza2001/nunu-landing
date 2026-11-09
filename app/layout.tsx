@@ -36,7 +36,9 @@ export const viewport: Viewport = {
 };
 
 // WebSite e Organization dizem ao Google o nome do site ("Nunu") e a logo que
-// ele mostra no resultado de busca; Product descreve a assinatura.
+// ele mostra no resultado de busca. A assinatura é Service, não Product:
+// Product com preço vira "listagem do comerciante" no Google, que cobra
+// imagem, frete e política de devolução — nada disso existe num serviço digital.
 const jsonLd = [
   {
     '@context': 'https://schema.org',
@@ -54,11 +56,14 @@ const jsonLd = [
   },
   {
     '@context': 'https://schema.org',
-    '@type': 'Product',
+    '@type': 'Service',
     name: site.name,
+    serviceType: 'Assistente de nutrição no WhatsApp',
     description: site.description,
     slogan: site.tagline,
     disclaimer,
+    provider: { '@type': 'Organization', name: site.name, url: site.url },
+    areaServed: 'BR',
     offers: {
       '@type': 'Offer',
       price: pricing.amount,
