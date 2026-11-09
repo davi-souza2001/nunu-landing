@@ -13,10 +13,11 @@ const jakarta = Plus_Jakarta_Sans({
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
-  title: `${site.name} — ${site.tagline}`,
+  title: site.title,
   description: site.description,
+  alternates: { canonical: '/' },
   openGraph: {
-    title: `${site.name} — ${site.tagline}`,
+    title: site.title,
     description: site.description,
     url: site.url,
     siteName: site.name,
@@ -25,7 +26,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: `${site.name} — ${site.tagline}`,
+    title: site.title,
     description: site.description,
   },
 };
@@ -34,20 +35,38 @@ export const viewport: Viewport = {
   themeColor: '#fdfbf7',
 };
 
-const jsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'Product',
-  name: site.name,
-  description: site.description,
-  slogan: site.tagline,
-  disclaimer,
-  offers: {
-    '@type': 'Offer',
-    price: pricing.amount,
-    priceCurrency: pricing.currency,
-    availability: 'https://schema.org/InStock',
+// WebSite e Organization dizem ao Google o nome do site ("Nunu") e a logo que
+// ele mostra no resultado de busca; Product descreve a assinatura.
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: site.name,
+    alternateName: 'Nunu Wellness',
+    url: site.url,
   },
-};
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: site.name,
+    url: site.url,
+    logo: `${site.url}/icon.png`,
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Product',
+    name: site.name,
+    description: site.description,
+    slogan: site.tagline,
+    disclaimer,
+    offers: {
+      '@type': 'Offer',
+      price: pricing.amount,
+      priceCurrency: pricing.currency,
+      availability: 'https://schema.org/InStock',
+    },
+  },
+];
 
 export default function RootLayout({
   children,

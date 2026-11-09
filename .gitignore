@@ -39,3 +39,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+# Vídeos pessoais da corrida: ficam só na máquina
+marketing/instagram/assets/corrida/
+marketing/instagram/reel/nunu-reel-corrida.mp4
+# Vídeos pessoais do mercado: ficam só na máquina
+marketing/instagram/assets/mercado/
+marketing/instagram/reel/nunu-reel-mercado.mp4

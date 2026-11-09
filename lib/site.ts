@@ -13,7 +13,9 @@ export const site = {
   tagline: 'Nutrition that nurtures.',
   description:
     'Uma assistente de nutrição no WhatsApp que conhece seus objetivos, suas restrições e sua rotina — e conversa com você todo dia.',
-  url: 'https://nunu.app.br',
+  url: 'https://nunuwellness.com.br',
+  /** Título da aba e do Google: em português, com o que as pessoas buscam. */
+  title: 'Nunu — Assistente de nutrição no WhatsApp',
 } as const;
 
 /**
